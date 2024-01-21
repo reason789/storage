@@ -1,0 +1,40 @@
+.Hero{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Hero-category{
+    /* border: 1px solid blueviolet; */
+    /* box-shadow: 10px 10px 10px var(--dark7); */
+    
+}
+
+.Hero-carousel{
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (min-width: 1025px) {
+
+    .Hero{
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: start;
+        gap: 0;
+        
+    }
+    .Hero-category{
+        max-width: 500px;
+        flex: .4;
+    }
+
+    .Hero-carousel{
+        justify-content: end;
+        flex: .7;
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,231 @@
+
+/* Login  */
+.Login_bg{
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+   align-items: center;
+    
+  }
+  .Login {
+   max-width: 960px;
+   min-height: 80vh;
+   margin: 0 auto;
+   box-shadow: -14.142px 14.142px 20px 10px rgba(0, 0, 0, 0.1);
+   display: flex;
+   align-items: center;
+   flex: 1;
+  
+  }
+  .Login_content_toggle{
+    position: absolute;
+    top: -20px;
+    right: 0px;
+    color: #333;
+    padding: 5px 6px;
+    border-radius: 2px;
+    font-size: 14px;
+  
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .Login_content_toggle h6{
+    font-size: 25px;
+  }
+  .Login_content_toggle:hover{
+    cursor: pointer;
+    background-color:#3498db2f;
+  }
+  
+  .Login_logo {
+   /* background-color: red; */
+   flex: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+  }
+  .Login_logo h2{
+    color: #fff;
+    font-size: 18px;
+    
+  
+  }
+  .Login_logo p{
+    color: #fff;
+  
+  }
+  .Login_content {
+    /* background-color: green; */
+    flex: 1;
+    padding: 40px 40px;
+    position: relative;
+  
+  }
+  .Login_content h2{
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+  }
+  .Login_content p{
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  .Login_content h4{
+    margin-top: 10px;
+    text-align: center;
+  }
+  .Login_content span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color: #3498db;
+  }
+  .Login_content a {
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  .Login_content a:hover{
+    text-decoration: underline;
+    color: #3498db;
+  }
+  .Login_content button{
+    width:100%;
+    background-color: var(--active-color);
+    border: none;
+    color: #fff;
+    padding: 10px 0;
+    cursor: pointer;
+  }
+  .Login_content button:hover{
+    width:100%;
+    background-color: var(--primary-color);
+    border: none;
+    color: #fff;
+    padding: 10px 0;
+  }
+  .Login_socials:before{
+    content: "OR";
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  .Login_socials{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .Login_socials_btn{
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0px 15px;
+    gap: 20px;
+    /* justify-content: center; */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .Login_socials_btn:hover{
+    text-decoration: underline;
+    backdrop-filter: 10px;
+  }
+  
+  .Login_socials_btn h4{
+    margin-bottom: 9px;
+    flex: 1;
+  }
+  .Login_socials_btn_icon{
+  
+    font-size: 25px;
+    color: #3498db;
+  }
+
+
+
+
+/* my code */
+
+.Login-password {
+    position: relative;
+}
+
+.Login-eye .icon{
+    position: absolute;
+    top: 37px;
+    right: 10px;
+    font-size: var(--font-s);
+}
+
+
+.Login input{
+    width: 100%;
+    padding: 0 15px;
+    height: 37px;
+    border: 1px solid var(--dark7);
+    color: var(--dark0);
+    font-size: var(--font-xs);
+    border-radius: 4px;
+    font-family: var(--body-font);
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.Login input:focus{
+    outline: none;
+}
+
+.Login button{
+    width: 100%;
+    font-size: var(--font-xxs);
+    font-weight: 600;
+    padding: 15px;
+    border-radius: 6px;
+    background-color: var(--dark0);
+    color: var(--white);
+}
+
+.Login button:hover{
+    background-color: var(--yellow);
+}
+
+
+
+
+
+
+
+
+
+
+  @media (max-width: 680px) {
+    .Login {
+      flex-direction: column;
+    }
+    .Login_content {
+      flex: 1;
+      width: 100%;
+      padding: 60px 20px;
+  
+    }
+    .Login_logo h2{
+      color: #333;
+    }
+    .Login_logo p{
+      color: #333;
+    }
+    .Login_bg{
+      background: #fff;
+    }
+    .Login_content_toggle{
+      top: 10px;
+    }
+    
+  }
+  /* Login End */
+  

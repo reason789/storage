@@ -1,0 +1,23 @@
+.Banner{
+    height: 100px;
+    margin-top: 50px;
+    /* background-image: url("../../assets/te.png"); */
+}
+
+.Banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-radius: 6px;
+    padding: 10px 15px;
+
+    border: 1px solid var(--yellow);
+    
+}
+
+.Banner-content h1{
+    font-size: var(--font-xxl);
+    
+}
+

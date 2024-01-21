@@ -1,0 +1,17 @@
+# All colors_______________________________________________________-
+
+background = #f6f6f8
+
+nav item = #293341
+green tag = #27ae60
+red tag = #c91f28
+black = #000000
+
+price : #696969
+product link = #0d6efd
+
+button color = #56cfe1
+
+
+footer head = #222222
+footer item = #878787

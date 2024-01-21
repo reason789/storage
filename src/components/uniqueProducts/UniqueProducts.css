@@ -1,0 +1,30 @@
+
+
+.UniqueProducts-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.UniqueProducts-links{
+    display: flex;
+    gap: 20px;
+}
+
+.UniqueProducts-links p{
+    font-size: var(--font-m);
+    cursor: pointer;
+}
+
+.UniqueProducts-Products{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* flex: 0 0 calc(50% - 20px); */
+}
+
+
+/* @media screen and (min-width: 1025px) {
+    .UniqueProducts-Products{
+        flex: 0 0 calc(20% - 20px);
+    }
+} */

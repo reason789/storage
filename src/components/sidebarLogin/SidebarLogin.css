@@ -1,0 +1,188 @@
+.SidebarLogin_wrapper{
+    position: relative;
+}
+
+.SidebarLogin_opacity{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 12;
+  transition: all .3s ease-out;
+}
+
+.SidebarLogin{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 320px;
+  background-color: #fff;
+  box-shadow: -14.142px 14.142px 20px 0px rgba(0, 0, 0, 0.1);
+  transform: translateX(400px);
+  z-index: 1002;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* padding: 15px ; */
+  transition: all .3s ease-out;
+}
+
+.SidebarLogin_active{
+  transform: translateX(0);
+}
+
+.SidebarLogin_top_cart{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid var(--dark7);
+}
+
+.SidebarLogin_top_cart h3{
+  font-size: var(--font-sm);
+  color: var(--dark1);
+  font-weight: 300;
+}
+
+.SidebarLogin_top_cart .icon{
+  font-size: var(--font-s);
+  color: var(--dark1);
+}
+
+.SidebarLogin_top_cart .icon:hover{
+  color: var(--dark4);
+}
+
+.SidebarLogin_bottom{
+  border-top: 1px solid var(--dark7);
+}
+
+.SidebarLogin_bottom-pricing{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.SidebarLogin_bottom-pricing h3{
+  font-size: var(--font-s);
+  font-weight: 500;
+}
+
+.SidebarLogin_bottom-pricing p{
+  font-size: var(--font-m);
+  color: var(--yellow);
+  font-weight: 500;
+}
+
+.SidebarLogin_bottom-buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+}
+
+
+
+/* Login Code  */
+
+.SideBarLogin-body{
+    padding: 15px;
+}
+
+.SideBarLogin-password {
+    position: relative;
+}
+
+.SideBarLogin-eye .icon{
+    position: absolute;
+    top: 38px;
+    right: 10px;
+    font-size: var(--font-s);
+}
+
+.SideBarLogin-body p{
+    color: var(--dark1);
+    font-weight: 300;
+    margin-bottom: 6px;
+}
+
+.SideBarLogin-link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    border-bottom: 1px solid var(--dark7);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.SideBarLogin-link label{
+    margin-left: 6px;
+}
+
+.SideBarLogin-link a{
+    color: var(--dark4);
+    font-weight: 300;
+}
+
+.SideBarLogin-link a:hover{
+    text-decoration: underline;
+}
+
+.SideBarLogin-body .input{
+    width: 100%;
+    padding: 0 15px;
+    height: 37px;
+    border: 1px solid var(--dark7);
+    color: var(--dark0);
+    font-size: var(--font-xs);
+    border-radius: 4px;
+    font-family: var(--body-font);
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.SideBarLogin-body .input:focus{
+    outline: none;
+}
+
+.SideBarLogin-body button{
+    width: 100%;
+    font-size: var(--font-xxs);
+    font-weight: 600;
+    padding: 15px;
+    border-radius: 6px;
+    background-color: var(--dark0);
+    color: var(--white);
+}
+
+.SideBarLogin-body button:hover{
+    background-color: var(--yellow);
+}
+
+.SidebarLogin-footer{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.SidebarLogin-footer img{
+    opacity: 0.1;
+}
+
+.SidebarLogin-footer a{
+    color: var(--yellow);
+}
+
+.SidebarLogin-footer a:hover{
+    text-decoration: underline;
+}
