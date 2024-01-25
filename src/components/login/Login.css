@@ -1,22 +1,22 @@
-
-/* Login  */
 .Login_bg{
     min-height: 90vh;
     display: flex;
     justify-content: center;
-   align-items: center;
-    
+    align-items: center;
+    /* background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); */
   }
+
   .Login {
-   max-width: 960px;
-   min-height: 80vh;
-   margin: 0 auto;
-   box-shadow: -14.142px 14.142px 20px 10px rgba(0, 0, 0, 0.1);
-   display: flex;
-   align-items: center;
-   flex: 1;
-  
+    max-width: 960px;
+    min-height: 80vh;
+    margin: 0 auto;
+    box-shadow: -14.142px 14.142px 20px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    flex: 1;
+    z-index: 999999999;
   }
+
   .Login_content_toggle{
     position: absolute;
     top: -20px;
@@ -30,39 +30,39 @@
     align-items: center;
     gap: 4px;
   }
+
   .Login_content_toggle h6{
     font-size: 25px;
   }
+
   .Login_content_toggle:hover{
     cursor: pointer;
     background-color:#3498db2f;
   }
   
   .Login_logo {
-   /* background-color: red; */
    flex: 1;
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
   }
+
   .Login_logo h2{
-    color: #fff;
-    font-size: 18px;
-    
-  
+    font-size: var(--font-l);
   }
+
   .Login_logo p{
-    color: #fff;
-  
+    font-size: var(--font-s);
+    color: var(--dark4);
   }
+
   .Login_content {
-    /* background-color: green; */
     flex: 1;
     padding: 40px 40px;
     position: relative;
-  
   }
+
   .Login_content h2{
     font-size: 24px;
     font-weight: 600;
@@ -70,14 +70,17 @@
     margin-bottom: 40px;
     color: #333;
   }
+
   .Login_content p{
     margin-top: 10px;
     margin-bottom: 5px;
   }
+
   .Login_content h4{
     margin-top: 10px;
     text-align: center;
   }
+
   .Login_content span:hover{
     text-decoration: underline;
     cursor: pointer;
@@ -90,37 +93,26 @@
     font-size: 13px;
     margin-top: 10px;
   }
+
   .Login_content a:hover{
     text-decoration: underline;
     color: #3498db;
   }
-  .Login_content button{
-    width:100%;
-    background-color: var(--active-color);
-    border: none;
-    color: #fff;
-    padding: 10px 0;
-    cursor: pointer;
-  }
-  .Login_content button:hover{
-    width:100%;
-    background-color: var(--primary-color);
-    border: none;
-    color: #fff;
-    padding: 10px 0;
-  }
+
   .Login_socials:before{
     content: "OR";
     text-align: center;
     margin-bottom: 20px;
     color: #333;
   }
+
   .Login_socials{
     margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
+
   .Login_socials_btn{
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -131,6 +123,7 @@
     align-items: center;
     cursor: pointer;
   }
+
   .Login_socials_btn:hover{
     text-decoration: underline;
     backdrop-filter: 10px;
@@ -147,10 +140,6 @@
   }
 
 
-
-
-/* my code */
-
 .Login-password {
     position: relative;
 }
@@ -161,7 +150,6 @@
     right: 10px;
     font-size: var(--font-s);
 }
-
 
 .Login input{
     width: 100%;
@@ -193,15 +181,6 @@
 .Login button:hover{
     background-color: var(--yellow);
 }
-
-
-
-
-
-
-
-
-
 
   @media (max-width: 680px) {
     .Login {

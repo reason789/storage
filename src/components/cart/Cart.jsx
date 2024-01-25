@@ -1,22 +1,13 @@
-// ProductTable.js
-
-import { useState } from "react";
-import "./Cart.css";
-import image from "../../assets/pants.webp";
+import { getItemsFromLocalStorage } from "../utils/action";
+import { removeFromCart } from "../utils/action";
+import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { RxCross1 } from "react-icons/rx";
+import "./Cart.css";
 
 const Cart = () => {
-  const products = [
-    {
-      id: 111111111111111111111111111,
-      name: "Product A",
-      price: 20,
-      stock: 50,
-    },
-    { id: 22222222222222222222222222, name: "Product B", price: 30, stock: 30 },
-    { id: 22222222222222222222222222, name: "Product B", price: 30, stock: 30 },
-    // Add more products as needed
-  ];
+  const { pathname } = useLocation();
+  const products = getItemsFromLocalStorage();
 
   const [qty, setQty] = useState(1);
 
@@ -29,6 +20,11 @@ const Cart = () => {
       setQty((prevQty) => prevQty - 1);
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="Cart container">
       <h1>SHOPPING CART</h1>
@@ -50,19 +46,24 @@ const Cart = () => {
                     <td>
                       <div className="Cart-table-product">
                         <div className="Cart-table-product-action">
-                          <RxCross1 className="icon" />
+                          <RxCross1
+                            className="icon"
+                            onClick={() => {
+                              removeFromCart(product.id);
+                            }}
+                          />
                         </div>
                         <div className="Cart-table-product-img">
-                          <img src={image} width="80px" />
+                          <img src={product.image} width="80px" />
                         </div>
                         <div className="Cart-table-product-name">
-                          <p>Winter Shirt</p>
+                          <p>{product && product.title}</p>
                         </div>
                       </div>
                     </td>
                     <td>
                       <div className="Cart-table-product-price">
-                        <p>{product.price}</p>
+                        <p>{product && product.price}</p>
                       </div>
                     </td>
                     <td>
@@ -72,7 +73,7 @@ const Cart = () => {
                             <div onClick={decQty} className="inc">
                               -
                             </div>
-                            <div className="inc">{qty}</div>
+                            <div className="inc">{product.quantity}</div>
                             <div onClick={incQty} className="inc">
                               +
                             </div>
@@ -83,7 +84,7 @@ const Cart = () => {
                     <td>
                       {" "}
                       <div className="Cart-table-product-subtotal">
-                        <p>{product.stock}</p>
+                        <p>{product.price}</p>
                       </div>
                     </td>
                   </tr>
@@ -131,38 +132,47 @@ const Cart = () => {
       <div className="Cart mbl">
         <div className="Cart-items">
           <div className="Cart-itemlist">
-            <div className="Cart-itemlist-mbl">
-              <div className="Cart-itemlist-mbl-img">
-                <img src={image} width="80px" />
-              </div>
-              <div className="Cart-itemlist-mbl-info">
-                <div className="Cart-itemlist-mbl-info-name">
-                  <p>Winter Shirt</p>
-                  <RxCross1 className="icon" />
-                </div>
-                <div className="Cart-itemlist-mbl-info-price">
-                  <p>PRICE</p>
-                  <span>৳950 </span>
-                </div>
-                <div className="Cart-itemlist-mbl-info-qty">
-                  <p>QUANTITY</p>
-                  <div>
-                    <div className="ProductDetails-product-view-info-inc">
-                      <div onClick={decQty} className="inc">
-                        -
+            <div className="Cart-itemlist-mbl-container">
+              {products.map((product) => (
+                <div className="Cart-itemlist-mbl">
+                  <div className="Cart-itemlist-mbl-img">
+                    <img src={product.image} width="80px" />
+                  </div>
+                  <div className="Cart-itemlist-mbl-info">
+                    <div className="Cart-itemlist-mbl-info-name">
+                      <p>{product.title}</p>
+                      <RxCross1
+                        onClick={() => {
+                          removeFromCart(product.id);
+                        }}
+                        className="icon"
+                      />
+                    </div>
+                    <div className="Cart-itemlist-mbl-info-price">
+                      <p>PRICE</p>
+                      <span>৳{product.price} </span>
+                    </div>
+                    <div className="Cart-itemlist-mbl-info-qty">
+                      <p>QUANTITY</p>
+                      <div>
+                        <div className="ProductDetails-product-view-info-inc">
+                          <div onClick={decQty} className="inc">
+                            -
+                          </div>
+                          <div className="inc">{product.quantity}</div>
+                          <div onClick={incQty} className="inc">
+                            +
+                          </div>
+                        </div>
                       </div>
-                      <div className="inc">{qty}</div>
-                      <div onClick={incQty} className="inc">
-                        +
-                      </div>
+                    </div>
+                    <div className="Cart-itemlist-mbl-info-subtotal">
+                      <p>SUBTOTAL</p>
+                      <span>৳{product.price} </span>
                     </div>
                   </div>
                 </div>
-                <div className="Cart-itemlist-mbl-info-subtotal">
-                  <p>SUBTOTAL</p>
-                  <span>৳950 </span>
-                </div>
-              </div>
+              ))}
             </div>
             <div className="Cart-mbl-coupon">
               <div className="Cart-coupon">

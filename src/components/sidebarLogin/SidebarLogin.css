@@ -116,10 +116,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 10px;
-    border-bottom: 1px solid var(--dark7);
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .SideBarLogin-link label{
@@ -185,4 +182,49 @@
 
 .SidebarLogin-footer a:hover{
     text-decoration: underline;
+}
+
+
+.SidebarLogin-p{
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.Login_socials:before{
+  content: "OR";
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.sidebar-login_socials{
+  /* margin-top: 40px; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid var(--dark7);
+  padding-bottom: 40px;
+}
+
+.sidebar-login_socials_btn{
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 9px 15px;
+  gap: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.sidebar-login_socials_btn:hover{
+  text-decoration: underline;
+  backdrop-filter: 10px;
+}
+
+.sidebar-login_socials_btn_icon{
+  font-size: 25px;
+  color: #3498db;
 }

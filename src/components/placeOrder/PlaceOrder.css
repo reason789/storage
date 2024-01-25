@@ -1,0 +1,46 @@
+
+
+.PlaceOrder-wrapper {
+    background-color: var(--dark7);
+    text-align: center;
+    padding: 20px;
+    min-height: 82vh;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.PlaceOrder-wrapper h1{
+    font-size: var(--font-m);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.PlaceOrder-wrapper h2{
+    font-size: var(--font-s);
+    margin-bottom: 10px;
+}
+
+.PlaceOrder-id{
+    font-weight: 600 ;
+}
+
+.PlaceOrder-wrapper p{
+    margin-bottom: 10px;
+}
+
+.PlaceOrder-wrapper button{
+    margin-top: 30px;
+    background-color: var(--dark0);
+    color: var(--white);
+    font-size: var(--font-xs);
+    padding: 12px 20px;
+    border-radius: 6px;
+  }
+
+  .PlaceOrder-wrapper button:hover{
+    background-color: var(--yellow);
+  }
+

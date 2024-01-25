@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import "./SidebarLogin.css";
 import CartItem from "../cartItem/CartItem";
+import { SiFacebook } from "react-icons/si";
+import { FcGoogle } from "react-icons/fc";
 import { IoEyeOutline } from "react-icons/io5";
 import { IoEyeOffOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -43,7 +45,6 @@ const SidebarLogin = ({ showLogin, setShowLogin }) => {
                 )}
               </div>
             </div>
-            <button>LOG IN</button>
             <div className="SideBarLogin-link">
               <div>
                 <input
@@ -56,11 +57,25 @@ const SidebarLogin = ({ showLogin, setShowLogin }) => {
               </div>
               <Link to="/forgot">Forgot Password</Link>
             </div>
+            <button>LOG IN</button>
+            <p className="SidebarLogin-p">OR</p>
+            <div className="sidebar-login_socials">
+              <div className="sidebar-login_socials_btn">
+                <FcGoogle className="sidebar-login_socials_btn_icon" />
+                <h4>Login With Google</h4>
+              </div>
+              <div className="sidebar-login_socials_btn">
+                <SiFacebook className="sidebar-login_socials_btn_icon" />
+                <h4>Login With Facebook</h4>
+              </div>
+            </div>
 
             <div className="SidebarLogin-footer">
               <img src={user} width="120px" />
               <p>No account Yet?</p>
-              <Link to="/account">Create an account</Link>
+              <Link onClick={() => setShowLogin(false)} to="/login">
+                Create an account
+              </Link>
             </div>
           </div>
         </div>

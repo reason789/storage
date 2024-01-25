@@ -21,6 +21,7 @@
 
 .Navbar-cart-items{
     display: flex;
+    align-items: center;
     gap: 20px;
 }
 
@@ -34,6 +35,51 @@
     font-size: 9px;
     color: var(--white);
     font-weight: 600;
+}
+
+.Navbar-categories-container{
+    position: relative;
+}
+
+.Navbar-categories {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: red;
+}
+
+.Navbar-categories-category{
+    position: absolute;
+    background-color: var(--main-bg);
+    border-radius: 6px;
+    width: 500px;
+    top: 30px;
+    left: -200px;
+    /* display: flex; */
+    opacity: 0;
+    visibility: hidden;
+    padding-top: 20px;
+    box-shadow: -14.142px 14.142px 20px 14.142px rgba(0, 0, 0, 0.3);
+    transform: translateY(20px);
+    transition: all .3s;
+}
+
+.Navbar-categories-container:hover .Navbar-categories-category{
+    /* display: flex; */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.Navbar-categories .icon,.Navbar-categories p{
+    color: var(--yellow);
+    transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.Navbar-categories:hover .icon,.Navbar-categories:hover p{
+    color: var(--yellow);
+    transform: translateY(-7px);
 }
 
 .Navbar-search {
@@ -78,6 +124,59 @@
 
 .pc{
     display: none;
+}
+
+.Navbar-user-wrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.Navbar-user-img{
+    border-radius: 50%;
+}
+
+
+
+
+.Navbar-dropdown{
+    position: absolute;
+    top: 48px;
+    right: 0;
+    /* min-height: 200px; */
+    width: 210px;
+    background-color: var(--white);
+    box-shadow: 2px 6px 23px 5px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 2px 6px 23px 5px rgba(0,0,0,0.25);
+    -moz-box-shadow: 2px 6px 23px 5px rgba(0,0,0,0.25);
+    border-radius: 6px;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    z-index: 9999999;
+    border-left: 1px solid var(--white);
+}
+
+
+
+.Navbar-user-wrapper:hover .Navbar-dropdown{
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.Navbar-square{
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    height: 15px;
+    width: 15px;
+    background-color: var(--white);
+    rotate: 45deg;
 }
 
 @media screen and (min-width: 1025px) {

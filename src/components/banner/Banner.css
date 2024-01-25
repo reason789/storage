@@ -18,6 +18,6 @@
 
 .Banner-content h1{
     font-size: var(--font-xxl);
-    
+    font-weight: 600;
 }
 

@@ -7,24 +7,14 @@
 
 .UniqueProducts-links{
     display: flex;
+    width: 100%;
     gap: 20px;
+    border-bottom: 1px solid var(--dark7);
 }
 
 .UniqueProducts-links p{
     font-size: var(--font-m);
     cursor: pointer;
+    padding-bottom: 10px; 
 }
 
-.UniqueProducts-Products{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    /* flex: 0 0 calc(50% - 20px); */
-}
-
-
-/* @media screen and (min-width: 1025px) {
-    .UniqueProducts-Products{
-        flex: 0 0 calc(20% - 20px);
-    }
-} */

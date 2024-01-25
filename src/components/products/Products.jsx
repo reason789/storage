@@ -2,16 +2,14 @@ import React from "react";
 import "./Products.css";
 import Product from "../../components/product/Product";
 
-const Products = () => {
+const Products = ({ products }) => {
   return (
     <>
       <div className="Products container">
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        {products &&
+          products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))}
       </div>
     </>
   );

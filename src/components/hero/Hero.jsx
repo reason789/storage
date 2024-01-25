@@ -12,6 +12,9 @@ const Hero = () => {
         </div>
         <div className="Hero-category ">
           <Categories />
+          <div className="Hero-btn">
+            <button>Shop Now</button>
+          </div>
         </div>
       </div>
     </section>

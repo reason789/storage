@@ -1,8 +1,8 @@
-.Sidebar_wrapper{
+.Leftbar_wrapper{
     position: relative;
 }
 
-.Sidebar_opacity{
+.Leftbar_opacity{
   position: fixed;
   top: 0;
   left: 0;
@@ -13,36 +13,29 @@
   transition: all .3s ease-out;
 }
 
-.Sidebar{
+.Leftbar{
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   height: 100vh;
-  width: 310px;
-  background-color: #fff;
+  width: 280px;
+  background-color: var(--main-bg);
   box-shadow: -14.142px 14.142px 20px 0px rgba(0, 0, 0, 0.1);
-  transform: translateX(400px);
+  transform: translateX(-400px);
   z-index: 1002;
-  /* overflow: auto; */
 
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   /* padding: 15px ; */
   transition: all .3s ease-out;
 }
 
-.Sidebar_active{
+.Leftbar_active{
   transform: translateX(0);
 }
 
-.Sidebar_top{
-  height: 70vh;
-  overflow: auto;
-}
-
-
-.Sidebar_top_cart{
+.Leftbar_top_cart{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,63 +43,51 @@
   border-bottom: 1px solid var(--dark7);
 }
 
-.Sidebar_top_cart h3{
+.Leftbar_top_cart h3{
   font-size: var(--font-sm);
-  color: var(--dark1);
-  font-weight: 300;
+  color: var(--yellow);
+  font-weight: 600;
 }
 
-.Sidebar_top_cart .icon{
+.Leftbar_top_cart .icon{
   font-size: var(--font-s);
   color: var(--dark1);
 }
 
-.Sidebar_top_cart .icon:hover{
+.Leftbar_top_cart .icon:hover{
   color: var(--dark4);
 }
 
-.Sidebar_top_cart-container{
-  height: 400px;
-  width: 100%;
-  overflow: auto;
-  background-color: red;
+.Leftbar_bottom{
+  border-top: 1px solid var(--dark7);
 }
 
-
-.Sidebar_bottom{
-  /* border-top: 1px solid var(--dark7); */
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.Sidebar_bottom-pricing{
+.Leftbar_bottom-pricing{
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px;
 }
 
-.Sidebar_bottom-pricing h3{
+.Leftbar_bottom-pricing h3{
   font-size: var(--font-s);
   font-weight: 500;
 }
 
-.Sidebar_bottom-pricing p{
+.Leftbar_bottom-pricing p{
   font-size: var(--font-m);
   color: var(--yellow);
   font-weight: 500;
 }
 
-.Sidebar_bottom-buttons{
+.Leftbar_bottom-buttons{
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 15px;
 }
 
-.Sidebar_bottom-buttons button{
+.Leftbar_bottom-buttons button{
   font-size: var(--font-xxs);
   font-weight: 600;
   padding: 15px;
@@ -114,11 +95,21 @@
   /* background-color: red; */
 }
 
-.Sidebar_bottom-white-btn{
+.Leftbar_bottom-white-btn{
   background-color: var(--dark8);
 }
 
-.Sidebar_bottom-black-btn{
+.Leftbar_bottom-black-btn{
   background-color: var(--dark0);
   color: var(--white);
+}
+
+.Leftbar-categories{
+    padding: 15px;
+}
+
+.Leftbar_bottom-img{
+    opacity: .5;
+    text-align: center;
+    padding-top: 20px;
 }

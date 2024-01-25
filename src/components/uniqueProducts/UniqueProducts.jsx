@@ -1,33 +1,39 @@
 import { useState } from "react";
 import "./UniqueProducts.css";
 import Product from "../product/Product";
+import { products } from "../data";
+import Products from "../products/Products";
 
 const UniqueProducts = () => {
-  const [selectedCategory, setSelectedCategory] = useState("top");
+  const [selectedCategory, setSelectedCategory] = useState("Top");
+
+  const filteredProducts = products.filter(
+    (product) => product.tag == selectedCategory
+  );
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
   return (
     <section>
-      <div className="UniqueProducts container">
-        <div className="UniqueProducts-wrapper">
-          <div className="UniqueProducts-links">
+      <div className="UniqueProducts ">
+        <div className="UniqueProducts-wrapper container">
+          <div className="UniqueProducts-links ">
             <p
-              className={`${selectedCategory == "top" && "active"}`}
-              onClick={() => handleCategoryClick("top")}
+              className={`${selectedCategory == "Top" && "active"}`}
+              onClick={() => handleCategoryClick("Top")}
             >
               Top
             </p>
             <p
-              className={`${selectedCategory == "new" && "active"}`}
-              onClick={() => handleCategoryClick("new")}
+              className={`${selectedCategory == "New" && "active"}`}
+              onClick={() => handleCategoryClick("New")}
             >
               New
             </p>
             <p
-              className={`${selectedCategory == "flash sale" && "active"}`}
-              onClick={() => handleCategoryClick("flash sale")}
+              className={`${selectedCategory == "Flash Sale" && "active"}`}
+              onClick={() => handleCategoryClick("Flash Sale")}
             >
               🔥Flash Sale
             </p>
@@ -37,19 +43,10 @@ const UniqueProducts = () => {
           )}
         </div>
         <div>
-          <div className="hr" />
           {selectedCategory && (
             <section>
               <div className="UniqueProducts-Products">
-                {/* <p>This is {selectedCategory} section</p> */}
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
+                <Products products={filteredProducts} />
               </div>
             </section>
           )}

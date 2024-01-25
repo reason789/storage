@@ -3,7 +3,12 @@ import { RxCross1 } from "react-icons/rx";
 import "./Sidebar.css";
 import CartItem from "../cartItem/CartItem";
 
+import { useNavigate } from "react-router-dom";
+
 const Sidebar = ({ showSidebar, setShowSidebar }) => {
+  const navigate = useNavigate();
+  const itemsJsonString = localStorage.getItem("cartItems");
+  const items = itemsJsonString && JSON.parse(itemsJsonString);
   return (
     <div className="Sidebar_wrapper">
       <div
@@ -11,18 +16,17 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
         className={` ${showSidebar ? "Sidebar_opacity" : ""}`}
       ></div>
       <div className={`Sidebar ${showSidebar ? "Sidebar_active" : ""}`}>
-        <div className="Sidebar_top">
-          <div className="Sidebar_top_cart">
-            <h3>Shopping Cart</h3>
-            <div onClick={() => setShowSidebar(false)}>
-              <RxCross1 className="icon" />
-            </div>
+        <div className="Sidebar_top_cart">
+          <h3>Shopping Cart</h3>
+          <div onClick={() => setShowSidebar(false)}>
+            <RxCross1 className="icon" />
           </div>
+        </div>
+        <div className="Sidebar_top">
           <div>
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
+            {items.map((item) => (
+              <CartItem item={item} setShowSidebar={setShowSidebar} />
+            ))}
           </div>
         </div>
         <div className="Sidebar_bottom">
@@ -31,8 +35,21 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
             <p>৳950</p>
           </div>
           <div className="Sidebar_bottom-buttons">
-            <button className="Sidebar_bottom-white-btn ">VIEW CART</button>
-            <button className="Sidebar_bottom-black-btn ">CHECKOUT</button>
+            <button
+              onClick={() => {
+                navigate(`/cart`);
+                setShowSidebar(false);
+              }}
+              className="Sidebar_bottom-white-btn "
+            >
+              VIEW CART
+            </button>
+            <button
+              className="Sidebar_bottom-black-btn "
+              onClick={() => navigate(`/checkout`)}
+            >
+              CHECKOUT
+            </button>
           </div>
         </div>
       </div>

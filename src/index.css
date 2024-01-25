@@ -46,6 +46,7 @@
 
   /*========== Font and typography ==========*/
   --body-font: 'Poppins', sans-serif;
+  --font-xxxs: 9px;
   --font-xxs: 11px;
   --font-xs: 14px;
   --font-s: 16px;
@@ -146,6 +147,7 @@ img{
 .active{
   color: var(--c-yellow);
   font-weight: 600;
+  border-bottom: 2px solid var(--yellow);
 }
 
 
@@ -212,5 +214,5 @@ img{
   width: 70px;
   height: 3px;
   background-color: var(--yellow);
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }

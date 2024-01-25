@@ -68,13 +68,6 @@
     margin-bottom: 30px;
 }
   
-  .Cart-items{
-    
-  }
-
-  .Cart-itemlist{
-    /* background-color: red; */
-  }
 
   .Cart-pricing{
     border: 2px solid var(--dark7);
@@ -244,6 +237,11 @@
     margin-bottom: 20px;
   }
 
+  .Cart-itemlist-mbl-container{
+    display: flex;
+    flex-direction: column;
+  }
+
   /* Mobile cart End*/
   
   @media screen and (min-width: 1025px) {
@@ -260,6 +258,13 @@
       .Cart-pricing{
         width: 35%;
         margin-left: 20px;
+      }
+      .Cart-table-product-qty{
+        height:100%;
+        padding-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
   }
   

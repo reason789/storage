@@ -1,23 +1,38 @@
+import { useNavigate } from "react-router-dom";
+import { RxCross1 } from "react-icons/rx";
 import React from "react";
 import "./CartItem.css";
-import image from "../../assets/pants.webp";
-import { RxCross1 } from "react-icons/rx";
-import { useNavigate } from "react-router-dom";
 
-const CartItem = () => {
+import { removeFromCart } from "../utils/action";
+
+const CartItem = ({ item, setShowSidebar }) => {
   const navigate = useNavigate();
+
   return (
-    <div onClick={() => navigate(`/`)} className="CartItem">
+    <div className="CartItem">
       <div className="CartItem-image">
-        <img src={image} width="60px" />
-        <div className="CartItem-content">
-          <h2> Winter Shirt</h2>
+        <img src={item.image} width="60px" />
+        <div
+          onClick={() => {
+            navigate(
+              `product/${item && item.id}/${item.title.split(" ").join("-")}`
+            );
+            setShowSidebar(false);
+          }}
+          className="CartItem-content"
+        >
+          <h2> {item.title}</h2>
           <p>
-            1 x <span>৳950</span>
+            {item.quantity} x <span>৳{item.price}</span>
           </p>
         </div>
       </div>
-      <RxCross1 className="icon" />
+      <RxCross1
+        onClick={() => {
+          removeFromCart(item.id);
+        }}
+        className="icon"
+      />
     </div>
   );
 };

@@ -1,18 +1,24 @@
-import React, { useState } from "react";
-import "./ProductDetails.css";
-import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { IoLogoPinterest } from "react-icons/io";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaTelegram } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import Reviews from "../reviews/Reviews";
 import Description from "../description/Description";
-
-import Gallary from "../gallary/Gallary";
+import { IoLogoPinterest } from "react-icons/io";
+import { useLocation } from "react-router-dom";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
+import { FaTelegram } from "react-icons/fa";
 import Products from "../products/Products";
+import { addToCart } from "../utils/action";
+import { FaTwitter } from "react-icons/fa";
+import Reviews from "../reviews/Reviews";
+import Gallary from "../gallary/Gallary";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { products } from "../data";
+import { useEffect } from "react";
+import "./ProductDetails.css";
 
 const ProductDetails = () => {
+  const { pathname } = useLocation();
+  const productId = parseInt(pathname.split("/")[2], 10);
+
   const [color, setColor] = useState(null);
   const [qty, setQty] = useState(1);
   const [content, setContent] = useState("desc");
@@ -20,12 +26,18 @@ const ProductDetails = () => {
   const incQty = () => {
     setQty((prevQty) => prevQty + 1);
   };
-
   const decQty = () => {
     if (qty > 1) {
       setQty((prevQty) => prevQty - 1);
     }
   };
+
+  const product = products.find((product) => product.id === productId);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="ProductDetails ">
       <div className="ProductDetails-product-view container">
@@ -35,13 +47,13 @@ const ProductDetails = () => {
         <div className="ProductDetails-product-view-info">
           <div className="ProductDetails-product-view-info-url">
             <Link to="/home">Home / </Link>
-            <Link to="/combo-offers">Combo Offers / </Link>
-            <span>Winter Shirt</span>
+            <Link to="/combo-offers">{product && product.category} / </Link>
+            <span>{product && product.title}</span>
           </div>
-          <h1>Winter Shirt</h1>
+          <h1>{product && product.title}</h1>
           <div className="ProductDetails-product-view-info-pricing">
-            <s>৳1470</s>
-            <p>৳950</p>
+            <s>৳{product && product.oldPrice}</s>
+            <p>৳{product && product.price}</p>
           </div>
           <div className="ProductDetails-product-view-info-size">
             <p>Size : </p>
@@ -83,7 +95,9 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="ProductDetails-product-view-info-btn">
-              <button className="btns">ADD TO CART</button>
+              <button className="btns" onClick={() => addToCart(product, qty)}>
+                ADD TO CART
+              </button>
             </div>
           </div>
           <div className="hr" />
