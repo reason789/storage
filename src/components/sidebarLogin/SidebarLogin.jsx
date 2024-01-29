@@ -53,7 +53,7 @@ const SidebarLogin = ({ showLogin, setShowLogin }) => {
                   name="remember"
                   value="yes"
                 />
-                <label for="remember">Remember me</label>
+                <label htmlFor="remember">Remember me</label>
               </div>
               <Link to="/forgot">Forgot Password</Link>
             </div>

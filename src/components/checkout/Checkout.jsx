@@ -94,7 +94,7 @@ const Checkout = () => {
                   checked={selectedPayment === "cod"}
                   onChange={handlePaymentChange}
                 />
-                <label for="cod">Cash On Delivery</label>
+                <label htmlFor="cod">Cash On Delivery</label>
                 {selectedPayment === "cod" && (
                   <div className="Checkout-payment-radio-div">
                     <div className="Checkout-payment-radio-div-cod">
@@ -112,7 +112,7 @@ const Checkout = () => {
                   checked={selectedPayment === "bkash"}
                   onChange={handlePaymentChange}
                 />
-                <label for="bkash">Bkash</label>
+                <label htmlFor="bkash">Bkash</label>
                 {selectedPayment === "bkash" && (
                   <div className="Checkout-payment-radio-div">
                     <h2>Bkash</h2>

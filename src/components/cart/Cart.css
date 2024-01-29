@@ -89,7 +89,8 @@
   }
 
   .Cart-pricing-subtotal span{
-    color: var(--dark4);
+    color: var(--yellow);
+    font-size: var(--font-sm);
   }
 
   .Cart-pricing-shipping{

@@ -1,4 +1,5 @@
 import Description from "../description/Description";
+import { getRandomProducts } from "../utils/action";
 import { IoLogoPinterest } from "react-icons/io";
 import { useLocation } from "react-router-dom";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -18,6 +19,8 @@ import "./ProductDetails.css";
 const ProductDetails = () => {
   const { pathname } = useLocation();
   const productId = parseInt(pathname.split("/")[2], 10);
+
+  const relatedProducts = getRandomProducts(products, 6);
 
   const [color, setColor] = useState(null);
   const [qty, setQty] = useState(1);
@@ -59,25 +62,25 @@ const ProductDetails = () => {
             <p>Size : </p>
             <div className="ProductDetails-product-view-info-size-button">
               <p
-                className={color == "m" && "activeColor"}
+                className={` ${color === "m" ? "activeColor" : ""}`}
                 onClick={() => setColor("m")}
               >
                 M
               </p>
               <p
-                className={color == "l" && "activeColor"}
+                className={` ${color === "l" ? "activeColor" : ""}`}
                 onClick={() => setColor("l")}
               >
                 L
               </p>
               <p
-                className={color == "xl" && "activeColor"}
+                className={` ${color === "xl" ? "activeColor" : ""}`}
                 onClick={() => setColor("xl")}
               >
                 XL
               </p>
               <p
-                className={color == "xxl" && "activeColor"}
+                className={` ${color === "xxl" ? "activeColor" : ""}`}
                 onClick={() => setColor("xxl")}
               >
                 XXL
@@ -123,9 +126,9 @@ const ProductDetails = () => {
       <div className="ProductDetails-text">
         <div className="ProductDetails-text-Navigation">
           <p
-            className={
-              content == "desc" && "ProductDetails-text-Navigation-active"
-            }
+            className={`ProductDetails-text-Navigation ${
+              content === "desc" ? "ProductDetails-text-Navigation-active" : ""
+            }`}
             onClick={() => {
               setContent("desc");
             }}
@@ -134,9 +137,11 @@ const ProductDetails = () => {
           </p>
 
           <p
-            className={
-              content == "reviews" && "ProductDetails-text-Navigation-active"
-            }
+            className={`ProductDetails-text-Navigation ${
+              content === "reviews"
+                ? "ProductDetails-text-Navigation-active"
+                : ""
+            }`}
             onClick={() => {
               setContent("reviews");
             }}
@@ -154,7 +159,9 @@ const ProductDetails = () => {
           <h1 className="">RELATED PRODUCTS</h1>
           <div className="dag " />
         </div>
-        <Products />
+        <div className="ProductDetails-space-from-top">
+          <Products products={relatedProducts} />
+        </div>
       </div>
     </div>
   );

@@ -95,18 +95,26 @@
     .Product{
         flex: 0 0 calc(25% - 20px);
     }
+    
 }
 
 @media screen and (min-width: 1200px) {
     .Product{
         flex: 0 0 calc(20% - 20px);
     }
+    .Product.large-screen {
+        flex: 0 0 calc(25% - 20px);
+      }
 }
 
 @media screen and (min-width: 1376px) {
     .Product{
         /* flex: 0 0 calc(20% - 20px); */
-        flex: 0 0 15.41%;
+        flex: 0 0 15.18%;
 
     }
+
+    .Product.large-screen {
+        flex: 0 0 calc(25% - 20px);
+      }
 }

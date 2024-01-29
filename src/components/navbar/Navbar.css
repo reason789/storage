@@ -108,8 +108,14 @@
 
 .Navbar-search .icon{
     position: absolute;
-    top: 14px;
-    right: 20px;
+    top: 7px;
+    border-radius: 0 6px 6px 0;
+    right: 16px;
+    background-color: var(--yellow);
+    height: 40px;
+    width: 40px;
+    padding: 7px;
+    font-size: var(--font-xs);
 }
 
 .Navbar-phone{
@@ -144,7 +150,7 @@
 
 .Navbar-dropdown{
     position: absolute;
-    top: 48px;
+    top: 38px;
     right: 0;
     /* min-height: 200px; */
     width: 210px;
@@ -169,6 +175,11 @@
     visibility: visible;
 }
 
+.Navbar-user-wrapper:hover{
+   filter: drop-shadow(10px);
+
+}
+
 .Navbar-square{
     position: absolute;
     top: -5px;
@@ -177,6 +188,11 @@
     width: 15px;
     background-color: var(--white);
     rotate: 45deg;
+}
+
+.Navbar-user-wrapper p{
+    font-weight: 500;
+    color: var(--dark4);
 }
 
 @media screen and (min-width: 1025px) {
@@ -196,7 +212,7 @@
         border: none;
     }
     .Navbar-wrapper{
-        max-width: var(--breakpoint-xxxl);
+        max-width: var(--breakpoint-xxl);
         width: 100%;
         padding-right: 15px;
         padding-left: 15px;

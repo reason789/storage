@@ -23,6 +23,7 @@
   --red1: #dc3545;
   --red2: #ec0101;
   --yellow: #ffa800;
+  --green: #13c027;
   --cyan0: #20b2aa;
   --cyan1: #56cfe1;
   --blue: #0d6efd;
@@ -126,7 +127,7 @@ img{
 }
 
 .container{
-  max-width: var(--breakpoint-xxxl);
+  max-width: var(--breakpoint-xxl);
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -150,6 +151,28 @@ img{
   border-bottom: 2px solid var(--yellow);
 }
 
+.tag{
+  background-color: var(--white);
+  color: var(--dark6);
+  border-radius: 20px;
+  padding: 1px 8px;
+  /* border: 1px solid var(--dark8); */
+ font-size: 13px;
+ font-weight: 600;
+}
+
+.tag .tag-icon{
+  padding: 1px;
+  transform: translateY(2px);
+}
+
+.tag .tag-icon:hover{
+  background-color: var(--dark6);
+  border-radius: 50%;
+  color: var(--white);
+  cursor: pointer;
+  font-weight: 600;
+}
 
 .btn {
   position: relative;

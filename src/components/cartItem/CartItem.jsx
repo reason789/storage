@@ -27,12 +27,14 @@ const CartItem = ({ item, setShowSidebar }) => {
           </p>
         </div>
       </div>
-      <RxCross1
+      <div
+        className="CartItem-cross"
         onClick={() => {
           removeFromCart(item.id);
         }}
-        className="icon"
-      />
+      >
+        <RxCross1 className="icon" />
+      </div>
     </div>
   );
 };

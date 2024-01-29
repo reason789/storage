@@ -5,8 +5,10 @@ import { FaPowerOff } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import "./ProfileDropdown.css";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProfileDropdown = () => {
+  const navigate = useNavigate();
   return (
     <div className="ProfileDropdown">
       <div className="ProfileDropdown-top">
@@ -21,11 +23,17 @@ const ProfileDropdown = () => {
         </div>
       </div>
       <div className="ProfileDropdown-body">
-        <div className="ProfileDropdown-body-flex">
+        <div
+          className="ProfileDropdown-body-flex"
+          onClick={() => navigate(`account`)}
+        >
           <FaUser className="icon" />
           <p>My Profile</p>
         </div>
-        <div className="ProfileDropdown-body-flex">
+        <div
+          className="ProfileDropdown-body-flex"
+          onClick={() => navigate(`my-orders`)}
+        >
           <MdBorderColor className="icon" />
           <p>My Orders</p>
         </div>

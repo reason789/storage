@@ -39,11 +39,17 @@
     color: var(--dark4);
 }
 
+.CartItem-cross{
+    height: 20px;
+    width: 20px;
+    /* background-color: red; */
+}
+
 .CartItem .icon{
     font-size: var(--font-xxs);
     height: 20px;
     width: 20px;
-    padding: 5px;
+    padding: 4px;
     border-radius: 20px;
 }
 

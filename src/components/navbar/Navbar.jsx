@@ -1,3 +1,4 @@
+import ProfileDropdown from "../profileDropdown/ProfileDropdown";
 import Categories from "../../components/categories/Categories";
 import SidebarLogin from "../sidebarLogin/SidebarLogin";
 import Sidebar from "../../components/sidebar/Sidebar";
@@ -13,14 +14,13 @@ import logo from "../../assets/logo.png";
 import Leftbar from "../leftbar/Leftbar";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import ProfileDropdown from "../profileDropdown/ProfileDropdown";
 
 const Navbar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showSidebarLogin, setShowSidebarLogin] = useState(false);
   const [showLeftbar, setShowLeftbar] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
 
   // const user = {
   //   name: "Md. Rahadul Haq",
@@ -122,7 +122,7 @@ const Navbar = () => {
                 <img
                   className="Navbar-user-img"
                   src="https://xsgames.co/randomusers/avatar.php?g=male"
-                  width="40px"
+                  width="30px"
                 />
                 <div className="Navbar-dropdown">
                   <div className="Navbar-square"></div>

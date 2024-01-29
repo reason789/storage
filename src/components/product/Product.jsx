@@ -1,17 +1,34 @@
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { addToCart } from "../utils/action";
 import { FaCartPlus } from "react-icons/fa";
-import { useState } from "react";
-import "./Product.css";
+import { useState, useEffect } from "react";
 import Sidebar from "../sidebar/Sidebar";
+import "./Product.css";
 
 const Products = ({ product }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
+  const { pathname } = useLocation();
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (pathname == "/product/category") {
+        setIsLargeScreen(window.innerWidth > 1200);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
-    <div className="Product">
+    // <div className="Product">
+    <div className={`Product ${isLargeScreen ? "large-screen" : ""}`}>
       <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
       <div
         className="Product-image"

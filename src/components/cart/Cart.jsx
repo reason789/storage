@@ -1,4 +1,9 @@
-import { getItemsFromLocalStorage } from "../utils/action";
+import {
+  decreaseQuantity,
+  getItemsFromLocalStorage,
+  increaseQuantity,
+  subtotal,
+} from "../utils/action";
 import { removeFromCart } from "../utils/action";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -7,19 +12,17 @@ import "./Cart.css";
 
 const Cart = () => {
   const { pathname } = useLocation();
-  const products = getItemsFromLocalStorage();
+  const [products, setProducts] = useState([]);
 
-  const [qty, setQty] = useState(1);
-
-  const incQty = () => {
-    setQty((prevQty) => prevQty + 1);
+  const [deliveryOption, setDeliveryOption] = useState(0);
+  const handleDeliveryChange = (event) => {
+    setDeliveryOption(parseInt(event.target.value));
   };
 
-  const decQty = () => {
-    if (qty > 1) {
-      setQty((prevQty) => prevQty - 1);
-    }
-  };
+  useEffect(() => {
+    const products = getItemsFromLocalStorage();
+    setProducts(products);
+  }, [products, deliveryOption]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -63,18 +66,24 @@ const Cart = () => {
                     </td>
                     <td>
                       <div className="Cart-table-product-price">
-                        <p>{product && product.price}</p>
+                        <p>৳{product && product.price}</p>
                       </div>
                     </td>
                     <td>
                       <div className="Cart-table-product-qty">
                         <div className="ProductDetails-product-view-info-inc-btn">
                           <div className="ProductDetails-product-view-info-inc">
-                            <div onClick={decQty} className="inc">
+                            <div
+                              onClick={() => decreaseQuantity(product.id)}
+                              className="inc"
+                            >
                               -
                             </div>
                             <div className="inc">{product.quantity}</div>
-                            <div onClick={incQty} className="inc">
+                            <div
+                              onClick={() => increaseQuantity(product.id)}
+                              className="inc"
+                            >
                               +
                             </div>
                           </div>
@@ -84,7 +93,7 @@ const Cart = () => {
                     <td>
                       {" "}
                       <div className="Cart-table-product-subtotal">
-                        <p>{product.price}</p>
+                        <p>৳{product && product.price * product.quantity}</p>
                       </div>
                     </td>
                   </tr>
@@ -105,25 +114,39 @@ const Cart = () => {
           <h2>CART TOTALS</h2>
           <div className="Cart-pricing-subtotal">
             <p>Subtotal</p>
-            <span>৳2370</span>
+            <span>৳{subtotal && subtotal()}</span>
           </div>
           <div className="Cart-pricing-shipping">
             <p>Shipping</p>
             <div className="Cart-pricing-shipping-radio">
-              <input type="radio" id="age1" name="age" value="30" />
-              <label for="age1">
+              <input
+                type="radio"
+                id="insideDhaka"
+                name="delivery"
+                value={60}
+                checked={deliveryOption === 60}
+                onChange={handleDeliveryChange}
+              />
+              <label htmlFor="insideDhaka">
                 Inside Dhaka <span> ৳60</span>
               </label>
               <br />
-              <input type="radio" id="age2" name="age" value="60" />
-              <label for="age2">
+              <input
+                type="radio"
+                id="outsideDhaka"
+                name="delivery"
+                value={120}
+                checked={deliveryOption === 120}
+                onChange={handleDeliveryChange}
+              />
+              <label htmlFor="outsideDhaka">
                 Outside Dhaka <span>৳120</span>
               </label>
             </div>
           </div>
           <div className="Cart-pricing-total">
             <p>Total</p>
-            <span>৳2475</span>
+            <span>৳{subtotal && subtotal() + deliveryOption}</span>
           </div>
           <button>PROCEED TO CHECKOUT</button>
         </div>
@@ -156,11 +179,17 @@ const Cart = () => {
                       <p>QUANTITY</p>
                       <div>
                         <div className="ProductDetails-product-view-info-inc">
-                          <div onClick={decQty} className="inc">
+                          <div
+                            onClick={() => decreaseQuantity(product.id)}
+                            className="inc"
+                          >
                             -
                           </div>
                           <div className="inc">{product.quantity}</div>
-                          <div onClick={incQty} className="inc">
+                          <div
+                            onClick={() => increaseQuantity(product.id)}
+                            className="inc"
+                          >
                             +
                           </div>
                         </div>
@@ -168,7 +197,9 @@ const Cart = () => {
                     </div>
                     <div className="Cart-itemlist-mbl-info-subtotal">
                       <p>SUBTOTAL</p>
-                      <span>৳{product.price} </span>
+                      <span>
+                        ৳{product && product.price * product.quantity}{" "}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -189,25 +220,25 @@ const Cart = () => {
             <h2>CART TOTALS</h2>
             <div className="Cart-pricing-subtotal">
               <p>Subtotal</p>
-              <span>৳2370</span>
+              <span>৳{subtotal && subtotal()}</span>
             </div>
             <div className="Cart-pricing-shipping">
               <p>Shipping</p>
               <div className="Cart-pricing-shipping-radio">
                 <input type="radio" id="area1" name="area" value="30" />
-                <label for="area1">
+                <label htmlFor="area1">
                   Inside Dhaka <span> ৳60</span>
                 </label>
                 <br />
                 <input type="radio" id="area2" name="area" value="60" />
-                <label for="area2">
+                <label htmlFor="area2">
                   Outside Dhaka <span>৳120</span>
                 </label>
               </div>
             </div>
             <div className="Cart-pricing-total">
               <p>Total</p>
-              <span>৳2475</span>
+              <span>৳{subtotal && subtotal() + deliveryOption}</span>
             </div>
             <button>PROCEED TO CHECKOUT</button>
           </div>

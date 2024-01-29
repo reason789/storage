@@ -1,0 +1,56 @@
+.UpdateProfile h3{
+    font-size: var(--font-s);
+    font-weight: 500;
+    margin-bottom: 20px;
+   
+}
+
+.UpdateProfile-wrapper input{
+    width: 100%;
+    padding: 0 15px;
+    height: 37px;
+    border: 1px solid var(--dark7);
+    color: var(--dark0);
+    font-size: var(--font-xs);
+    border-radius: 4px;
+    font-family: var(--body-font);
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.UpdateProfile-wrapper input:focus{
+    outline: none;
+}
+
+.UpdateProfile-wrapper p{
+    color: var(--dark1);
+    font-weight: 300;
+    margin-bottom: 6px;
+}
+
+.UpdateProfile-wrapper button{
+    width: 100%;
+    font-size: var(--font-xxs);
+    font-weight: 600;
+    padding: 15px;
+    border-radius: 6px;
+    background-color: var(--dark0);
+    color: var(--white);
+}
+
+.UpdateProfile-wrapper button:hover{
+    background-color: var(--yellow);
+}
+
+.Updateprofile-input{
+    border: none;
+    padding: 20px 20px 40px 10px !important;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1025px) {
+    .UpdateProfile{
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
