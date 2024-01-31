@@ -159,7 +159,7 @@ const ProductDetails = () => {
           <h1 className="">RELATED PRODUCTS</h1>
           <div className="dag " />
         </div>
-        <div className="ProductDetails-space-from-top">
+        <div className="ProductDetails-space-from-top container">
           <Products products={relatedProducts} />
         </div>
       </div>

@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./PriceRangeSlider.css";
 
-const PriceRangeSlider = () => {
+const PriceRangeSlider = ({ minPrice, maxPrice, setMinPrice, setMaxPrice }) => {
   useEffect(() => {
     function getVals() {
       // Get slider values
@@ -15,6 +15,10 @@ const PriceRangeSlider = () => {
         slide2 = slide1;
         slide1 = tmp;
       }
+
+      // Update state with min and max prices
+      setMinPrice(slide1);
+      setMaxPrice(slide2);
 
       let displayElement = parent.getElementsByClassName(
         "PriceRangeSlider-rangeValues"
@@ -41,23 +45,29 @@ const PriceRangeSlider = () => {
   return (
     <div className="PriceRangeSlider">
       <div className="PriceRangeSlider-range-slider">
-        {/* <span className="PriceRangeSlider-rangeValues"></span> */}
+        <span className="PriceRangeSlider-rangeValues"></span>
         <input
-          defaultValue="1000"
-          min="1000"
-          max="50000"
+          // defaultValue="1000"
+          min="0"
+          max="20000"
           step="500"
           type="range"
+          defaultValue={minPrice}
         />
         <input
-          defaultValue="50000"
-          min="1000"
-          max="50000"
+          // defaultValue="50000"
+          min="0"
+          max="20000"
           step="500"
           type="range"
+          defaultValue={maxPrice}
         />
       </div>
-      <span className="PriceRangeSlider-rangeValues">Range: 400 - 5400</span>
+      {/* <div className="PriceRangeSlider-rangeValuescc">
+        ${minPrice} - ${maxPrice}
+      </div> */}
+
+      {/* <span className="PriceRangeSlider-rangeValues">Range: 400 - 5400</span> */}
     </div>
   );
 };

@@ -2,8 +2,10 @@ import Carousel from "../carousel/Carousel";
 import "./Hero.css";
 import { countries } from "../data";
 import Categories from "../categories/Categories";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <section>
       <div className="Hero container">
@@ -13,7 +15,9 @@ const Hero = () => {
         <div className="Hero-category ">
           <Categories />
           <div className="Hero-btn">
-            <button>Shop Now</button>
+            <button onClick={() => navigate("product/category")}>
+              Shop Now
+            </button>
           </div>
         </div>
       </div>

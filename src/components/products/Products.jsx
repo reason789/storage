@@ -5,7 +5,7 @@ import Product from "../../components/product/Product";
 const Products = ({ products }) => {
   return (
     <>
-      <div className="Products container">
+      <div className="Products">
         {products &&
           products.map((product) => (
             <Product key={product.id} product={product} />

@@ -45,7 +45,7 @@ const UniqueProducts = () => {
         <div>
           {selectedCategory && (
             <section>
-              <div className="UniqueProducts-Products">
+              <div className="UniqueProducts-Products container">
                 <Products products={filteredProducts} />
               </div>
             </section>
