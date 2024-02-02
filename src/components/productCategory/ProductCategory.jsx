@@ -1,4 +1,5 @@
 import ProductFilter from "../productFilter/ProductFilter";
+import { useLocation } from "react-router-dom";
 import { BsFilterLeft } from "react-icons/bs";
 import { IoIosSearch } from "react-icons/io";
 import { useState, useEffect } from "react";
@@ -18,9 +19,28 @@ const ProductCategory = () => {
   const [overlay, setOverlay] = useState(false);
   const [filter, setFilter] = useState(false);
   const [minPrice, setMinPrice] = useState(0);
+  const location = useLocation();
+
+  const queryParams = new URLSearchParams(location.search);
+  const qParam = queryParams.get("q");
 
   const handleCategoryClick = (category) => {
-    setSelectedCategory(category === selectedCategory ? null : category);
+    const newQValue = category === selectedCategory ? null : category;
+
+    const newUrl = updateUrlParameter(window.location.href, "q", newQValue);
+    window.history.pushState({ path: newUrl }, "", newUrl);
+
+    setSelectedCategory(newQValue);
+  };
+
+  const updateUrlParameter = (url, param, value) => {
+    const urlObj = new URL(url);
+    if (value !== null) {
+      urlObj.searchParams.set(param, value);
+    } else {
+      urlObj.searchParams.delete(param);
+    }
+    return urlObj.toString();
   };
 
   const predefinedColors = ["red", "blue", "black", "white", "yellow"];
@@ -78,6 +98,8 @@ const ProductCategory = () => {
   const clearFilter = (filterName) => {
     switch (filterName) {
       case "Category":
+        const updatedUrl = updateUrlParameter(window.location.href, "q", null);
+        window.history.pushState({ path: updatedUrl }, "", updatedUrl);
         setSelectedCategory(null);
         break;
       case "Color":
@@ -105,10 +127,6 @@ const ProductCategory = () => {
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
-
-  const filteredItems = products.filter(
-    (product) => product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
-  );
 
   const filteredData = (products, selected, query) => {
     let filteredProducts = products;
@@ -172,7 +190,6 @@ const ProductCategory = () => {
         filteredProducts.sort((a, b) => b.title.localeCompare(a.title));
         break;
       default:
-        // Keep the default order
         break;
     }
 
@@ -180,8 +197,6 @@ const ProductCategory = () => {
   };
 
   const result = filteredData(products, selectedFilters, query);
-
-  console.log(result);
 
   useEffect(() => {
     const handleResize = () => {
@@ -234,6 +249,7 @@ const ProductCategory = () => {
             handleBrandToggle={handleBrandToggle}
             selectedFilters={selectedFilters}
             handleCategoryClick={handleCategoryClick}
+            qParam={qParam}
           />
         </div>
       </div>

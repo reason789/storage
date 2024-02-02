@@ -8,9 +8,17 @@ import "./Sidebar.css";
 const Sidebar = ({ showSidebar, setShowSidebar }) => {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
-  useEffect(() => {
+  // useEffect(() => {
+  //   const itemss = getItemsFromLocalStorage();
+  //   setItems(itemss);
+  // }, [items]);
+  const updateItems = () => {
     const itemss = getItemsFromLocalStorage();
     setItems(itemss);
+    return;
+  };
+  useEffect(() => {
+    updateItems();
   }, [items]);
 
   return (

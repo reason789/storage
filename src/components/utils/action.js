@@ -49,8 +49,6 @@ export const addToCart = (product, quantity = 1) => {
     (item) => item.id === productId
   );
 
-  console.log(existingProductIndex);
-
   if (existingProductIndex !== -1) {
     cartItems[existingProductIndex].quantity += 1;
   } else {

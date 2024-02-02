@@ -3,9 +3,11 @@ import Categories from "../../components/categories/Categories";
 import SidebarLogin from "../sidebarLogin/SidebarLogin";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { MdOutlineShoppingBag } from "react-icons/md";
+import SearchItem from "../searchItem/SearchItem";
 import { BiSolidCategory } from "react-icons/bi";
-import { CgMenuLeftAlt } from "react-icons/cg";
 import { totalCartItems } from "../utils/action";
+import { CgMenuLeftAlt } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 import { useState, useEffect } from "react";
@@ -13,20 +15,25 @@ import { FaPhone } from "react-icons/fa6";
 import logo from "../../assets/logo.png";
 import Leftbar from "../leftbar/Leftbar";
 import { Link } from "react-router-dom";
+import { products } from "../data";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const [showSidebar, setShowSidebar] = useState(false);
+  const navigate = useNavigate();
   const [showSidebarLogin, setShowSidebarLogin] = useState(false);
-  const [showLeftbar, setShowLeftbar] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [showLeftbar, setShowLeftbar] = useState(false);
   const [user, setUser] = useState(true);
+  const [query, setQuery] = useState("");
 
-  // const user = {
-  //   name: "Md. Rahadul Haq",
-  //   displayName: "Md",
-  //   image: "https://xsgames.co/randomusers/avatar.php?g=male",
-  // };
+  const handleInputChange = (event) => {
+    setQuery(event.target.value);
+  };
+
+  const filteredProducts = products.filter(
+    (product) => product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,8 +90,23 @@ const Navbar = () => {
         )}
 
         <div className="Navbar-search pc">
-          <input type="text" name="" id="" placeholder="Search for products" />
-          <IoIosSearch className="icon" />
+          <input
+            type="text"
+            name=""
+            id=""
+            value={query}
+            onChange={handleInputChange}
+            placeholder="Search for products"
+          />
+          <div className="Navbar-search-icon">
+            <IoIosSearch className="icon" />
+          </div>
+          <div
+            className="Navbar-search-item-list"
+            style={{ visibility: query && "visible", opacity: "1" }}
+          >
+            <SearchItem products={filteredProducts} setQuery={setQuery} />
+          </div>
         </div>
         <div className="Navbar-phone pc">
           <FaPhone className="icon" />
@@ -127,7 +149,7 @@ const Navbar = () => {
                 <div className="Navbar-dropdown">
                   <div className="Navbar-square"></div>
                   <div className="Navbar-profile-wrapper">
-                    <ProfileDropdown />
+                    <ProfileDropdown user={user} setUser={setUser} />
                   </div>
                 </div>
               </div>
@@ -136,8 +158,21 @@ const Navbar = () => {
         </div>
       </div>
       <div className="Navbar-search mbl">
-        <input type="text" name="" id="" placeholder="Search for products" />
+        <input
+          type="text"
+          name=""
+          id=""
+          onChange={handleInputChange}
+          value={query}
+          placeholder="Search for products"
+        />
         <IoIosSearch className="icon" />
+        <div
+          className="Navbar-search-item-list"
+          style={{ visibility: query && "visible", opacity: "1" }}
+        >
+          <SearchItem products={filteredProducts} setQuery={setQuery} />
+        </div>
       </div>
     </div>
   );

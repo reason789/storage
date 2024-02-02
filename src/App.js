@@ -12,6 +12,8 @@ import Login from "./components/login/Login";
 import Cart from "./components/cart/Cart";
 import Home from "./pages/Home";
 import "./App.css";
+import ForgotPassword from "./components/forgotPassword/ForgotPassword";
+import ResetPassword from "./components/resetPassword/ResetPassword";
 
 const App = () => {
   return (
@@ -21,13 +23,15 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/category" element={<ProductCategory />} />
-        <Route path="product/:id/*" element={<ProductDetails />} />
+        <Route path="product-details/:id/*" element={<ProductDetails />} />
         <Route path="cart" element={<Cart />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="success" element={<PlaceOrder />} />
         <Route path="account" element={<Profile />} />
         <Route path="my-orders" element={<MyOrders />} />
         <Route path="login" element={<Login />} />
+        <Route path="forgot-password" element={<ForgotPassword />} />
+        <Route path="reset-password" element={<ResetPassword />} />
         <Route path="gradient" element={<Gradient />} />
       </Routes>
       <Footer />

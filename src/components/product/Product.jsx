@@ -38,7 +38,7 @@ const Products = ({ product }) => {
         <img
           onClick={() =>
             navigate(
-              `product/${product && product.id}/${product.title
+              `/product-details/${product && product.id}/${product.title
                 .split(" ")
                 .join("-")}`
             )
@@ -58,7 +58,7 @@ const Products = ({ product }) => {
         <h2
           onClick={() =>
             navigate(
-              `product/${product && product.id}/${product.title
+              `/product-details/${product && product.id}/${product.title
                 .split(" ")
                 .join("-")}`
             )

@@ -74,28 +74,12 @@ export const categories = [
   },
 ];
 
-// const predefinedColors = ["red", "blue", "black", "white", "yellow"];
-// const predefinedBrands = ["Adidas", "Nike", "Puma", "Reebok", "Under Armour"];
-// const predefinedSizes = ["M", "L", "XL", "XXL"];
-// const productsWithAttributes = products.map((product) => ({
-//   ...product,
-//   size: getRandomItem(predefinedSizes),
-//   brand: getRandomItem(predefinedBrands),
-//   color: getRandomItem(predefinedColors),
-// }));
-
-// function getRandomItem(array) {
-//   const randomIndex = Math.floor(Math.random() * array.length);
-//   return array[randomIndex];
-// }
-
-// console.log(productsWithAttributes);
-
 export const user = {
   name: "Md. Rahadul Haq",
   displayName: "Md",
   image: "https://xsgames.co/randomusers/avatar.php?g=male",
 };
+
 export const products = [
   {
     id: 1,
@@ -463,3 +447,20 @@ export const products = [
     color: "yellow",
   },
 ];
+
+// const predefinedColors = ["red", "blue", "black", "white", "yellow"];
+// const predefinedBrands = ["Adidas", "Nike", "Puma", "Reebok", "Under Armour"];
+// const predefinedSizes = ["M", "L", "XL", "XXL"];
+// const productsWithAttributes = products.map((product) => ({
+//   ...product,
+//   size: getRandomItem(predefinedSizes),
+//   brand: getRandomItem(predefinedBrands),
+//   color: getRandomItem(predefinedColors),
+// }));
+
+// function getRandomItem(array) {
+//   const randomIndex = Math.floor(Math.random() * array.length);
+//   return array[randomIndex];
+// }
+
+// console.log(productsWithAttributes);

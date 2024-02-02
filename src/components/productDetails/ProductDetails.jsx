@@ -10,6 +10,7 @@ import { addToCart } from "../utils/action";
 import { FaTwitter } from "react-icons/fa";
 import Reviews from "../reviews/Reviews";
 import Gallary from "../gallary/Gallary";
+import Sidebar from "../sidebar/Sidebar";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { products } from "../data";
@@ -19,16 +20,16 @@ import "./ProductDetails.css";
 const ProductDetails = () => {
   const { pathname } = useLocation();
   const productId = parseInt(pathname.split("/")[2], 10);
-
   const relatedProducts = getRandomProducts(products, 6);
-
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [content, setContent] = useState("desc");
   const [color, setColor] = useState(null);
   const [qty, setQty] = useState(1);
-  const [content, setContent] = useState("desc");
 
   const incQty = () => {
     setQty((prevQty) => prevQty + 1);
   };
+
   const decQty = () => {
     if (qty > 1) {
       setQty((prevQty) => prevQty - 1);
@@ -43,6 +44,8 @@ const ProductDetails = () => {
 
   return (
     <div className="ProductDetails ">
+      <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
+
       <div className="ProductDetails-product-view container">
         <div className="ProductDetails-product-view-img">
           <Gallary />
@@ -98,7 +101,13 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="ProductDetails-product-view-info-btn">
-              <button className="btns" onClick={() => addToCart(product, qty)}>
+              <button
+                className="btns"
+                onClick={() => {
+                  addToCart(product, qty);
+                  setShowSidebar(true);
+                }}
+              >
                 ADD TO CART
               </button>
             </div>

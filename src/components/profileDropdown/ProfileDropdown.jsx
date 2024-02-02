@@ -7,7 +7,7 @@ import "./ProfileDropdown.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const ProfileDropdown = () => {
+const ProfileDropdown = ({ user, setUser }) => {
   const navigate = useNavigate();
   return (
     <div className="ProfileDropdown">
@@ -43,7 +43,13 @@ const ProfileDropdown = () => {
         </div>
       </div>
       <div className="ProfileDropdown-bottom">
-        <div className="ProfileDropdown-body-flex">
+        <div
+          onClick={() => {
+            setUser(false);
+            navigate("/");
+          }}
+          className="ProfileDropdown-body-flex"
+        >
           <FaPowerOff className="icon" />
           <p>Logout</p>
         </div>

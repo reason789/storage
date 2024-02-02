@@ -1,7 +1,7 @@
 import PriceRangeSlider from "../PriceRangeSlider/PriceRangeSlider";
 // import useProductFilters from "../utils/hooks/useProductFilters";
 import { RxCross1 } from "react-icons/rx";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ProductFilter.css";
 
 const ProductFilter = ({
@@ -26,9 +26,14 @@ const ProductFilter = ({
   handleBrandToggle,
   selectedFilters,
   handleCategoryClick,
+  qParam,
 }) => {
+  useEffect(() => {
+    setSelectedCategory(qParam);
+  }, []);
   return (
     <div className="ProductFilter">
+      <p>{qParam}</p>
       <div className="ProductFilter-header mbl">
         <div className="Sidebar_top_cart">
           <h3>Filter</h3>

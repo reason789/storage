@@ -3,9 +3,6 @@ import { categories } from "../data";
 import "./Categories.css";
 import React from "react";
 
-// import { GiBasketballJersey } from "react-icons/gi";
-// import { IoShirtSharp } from "react-icons/io5";
-
 const Categories = () => {
   const navigate = useNavigate();
   return (
@@ -13,7 +10,7 @@ const Categories = () => {
       {categories.map((category, index) => (
         <div
           key={index}
-          onClick={() => navigate(`/${category.url}`)}
+          onClick={() => navigate(`/product/category?q=${category.url}`)}
           className="Categories-Category"
           style={{ backgroundColor: `${category.bgColor}` }}
         >
