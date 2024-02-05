@@ -1,8 +1,8 @@
-import Carousel from "../carousel/Carousel";
-import "./Hero.css";
-import { countries } from "../data";
 import Categories from "../categories/Categories";
 import { useNavigate } from "react-router-dom";
+import Carousel from "../carousel/Carousel";
+import { countries } from "../data";
+import "./Hero.css";
 
 const Hero = () => {
   const navigate = useNavigate();

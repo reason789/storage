@@ -1,20 +1,21 @@
 import {
-  decreaseQuantity,
   getItemsFromLocalStorage,
+  decreaseQuantity,
   increaseQuantity,
   subtotal,
 } from "../utils/action";
+import { useLocation, useNavigate } from "react-router-dom";
 import { removeFromCart } from "../utils/action";
-import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { RxCross1 } from "react-icons/rx";
 import "./Cart.css";
 
 const Cart = () => {
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const [products, setProducts] = useState([]);
-
   const [deliveryOption, setDeliveryOption] = useState(0);
+
   const handleDeliveryChange = (event) => {
     setDeliveryOption(parseInt(event.target.value));
   };
@@ -30,7 +31,13 @@ const Cart = () => {
 
   return (
     <div className="Cart container">
-      <h1>SHOPPING CART</h1>
+      <div className="Cart-header-text">
+        <h1>SHOPPING CART &nbsp;</h1>
+        <p>
+          {">"} CHECKOUT {"> "}
+        </p>
+        <p>&nbsp; PLACE ORDER </p>
+      </div>
       <div className="Cart-table pc">
         <div className="Cart-itemlist">
           <div className="table-container ">
@@ -148,7 +155,9 @@ const Cart = () => {
             <p>Total</p>
             <span>৳{subtotal && subtotal() + deliveryOption}</span>
           </div>
-          <button>PROCEED TO CHECKOUT</button>
+          <button onClick={() => navigate("/checkout")}>
+            PROCEED TO CHECKOUT
+          </button>
         </div>
       </div>
 
@@ -240,7 +249,13 @@ const Cart = () => {
               <p>Total</p>
               <span>৳{subtotal && subtotal() + deliveryOption}</span>
             </div>
-            <button>PROCEED TO CHECKOUT</button>
+            <button
+              onClick={() => {
+                navigate("/checkout");
+              }}
+            >
+              PROCEED TO CHECKOUT
+            </button>
           </div>
         </div>
       </div>

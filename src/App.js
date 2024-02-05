@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import "./App.css";
 import ForgotPassword from "./components/forgotPassword/ForgotPassword";
 import ResetPassword from "./components/resetPassword/ResetPassword";
+import NotFound from "./components/notFound/NotFound";
 
 const App = () => {
   return (
@@ -33,6 +34,8 @@ const App = () => {
         <Route path="forgot-password" element={<ForgotPassword />} />
         <Route path="reset-password" element={<ResetPassword />} />
         <Route path="gradient" element={<Gradient />} />
+        {/* Not Found route */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>

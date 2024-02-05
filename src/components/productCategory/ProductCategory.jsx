@@ -1,4 +1,5 @@
 import ProductFilter from "../productFilter/ProductFilter";
+import noProduct from "../../assets/forbidden.png";
 import { useLocation } from "react-router-dom";
 import { BsFilterLeft } from "react-icons/bs";
 import { IoIosSearch } from "react-icons/io";
@@ -10,16 +11,17 @@ import { products } from "../data";
 import "./ProductCategory.css";
 
 const ProductCategory = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [selectedColors, setSelectedColors] = useState([]);
-  const [selectedBrands, setSelectedBrands] = useState([]);
-  const [sortOption, setSortOption] = useState("default");
-  const [selectedSizes, setSelectedSizes] = useState([]);
-  const [maxPrice, setMaxPrice] = useState(20000);
-  const [overlay, setOverlay] = useState(false);
+  const location = useLocation();
+  const { pathname } = useLocation();
   const [filter, setFilter] = useState(false);
   const [minPrice, setMinPrice] = useState(0);
-  const location = useLocation();
+  const [overlay, setOverlay] = useState(false);
+  const [maxPrice, setMaxPrice] = useState(20000);
+  const [selectedSizes, setSelectedSizes] = useState([]);
+  const [sortOption, setSortOption] = useState("default");
+  const [selectedColors, setSelectedColors] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const queryParams = new URLSearchParams(location.search);
   const qParam = queryParams.get("q");
@@ -210,6 +212,31 @@ const ProductCategory = () => {
     };
   }, []);
 
+  // page pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 8;
+
+  const totalProducts = result.length;
+  const totalPages = Math.ceil(totalProducts / productsPerPage);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo(0, 0);
+  };
+
+  const paginatedProducts = result.slice(
+    (currentPage - 1) * productsPerPage,
+    currentPage * productsPerPage
+  );
+
+  useEffect(() => {
+    setCurrentPage(1); // Reset the current page when a new search query is entered
+  }, [query]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="ProductCategory container">
       <div
@@ -307,7 +334,29 @@ const ProductCategory = () => {
           )}
         </div>
         <div className="ProductCategory-related-products">
-          <Products products={result} />
+          {result.length !== 0 ? (
+            <>
+              <Products products={paginatedProducts} />
+              <div className="ProductCategory-pagination">
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <span
+                    key={index + 1}
+                    className={`pagination-item ${
+                      currentPage === index + 1 && "active"
+                    }`}
+                    onClick={() => handlePageChange(index + 1)}
+                  >
+                    {index + 1}
+                  </span>
+                ))}
+              </div>
+            </>
+          ) : (
+            <div className="ProductCategory-related-products-no-item">
+              <img src={noProduct} width="150px" />
+              <p>No Products are found</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -1,7 +1,8 @@
 import PriceRangeSlider from "../PriceRangeSlider/PriceRangeSlider";
 // import useProductFilters from "../utils/hooks/useProductFilters";
-import { RxCross1 } from "react-icons/rx";
 import React, { useEffect, useState } from "react";
+import { allCategory, allProductslength } from "../utils/action";
+import { RxCross1 } from "react-icons/rx";
 import "./ProductFilter.css";
 
 const ProductFilter = ({
@@ -31,9 +32,9 @@ const ProductFilter = ({
   useEffect(() => {
     setSelectedCategory(qParam);
   }, []);
+  console.log();
   return (
     <div className="ProductFilter">
-      <p>{qParam}</p>
       <div className="ProductFilter-header mbl">
         <div className="Sidebar_top_cart">
           <h3>Filter</h3>
@@ -57,35 +58,19 @@ const ProductFilter = ({
             onClick={() => handleCategoryClick(null)}
           >
             <p>All Products</p>
-            <p>80</p>
+            <p>{allProductslength()}</p>
           </div>
-          <div
-            className={`ProductFilter-items ${
-              selectedCategory === "Jersey" ? "selected-category" : ""
-            }`}
-            onClick={() => handleCategoryClick("Jersey")}
-          >
-            <p>Jersey</p>
-            <p>20</p>
-          </div>
-          <div
-            className={`ProductFilter-items ${
-              selectedCategory === "Shirt" ? "selected-category" : ""
-            }`}
-            onClick={() => handleCategoryClick("Shirt")}
-          >
-            <p>Shirt</p>
-            <p>25</p>
-          </div>
-          <div
-            className={`ProductFilter-items ${
-              selectedCategory === "Pants" ? "selected-category" : ""
-            }`}
-            onClick={() => handleCategoryClick("Pants")}
-          >
-            <p>Pants</p>
-            <p>42</p>
-          </div>
+          {Object.entries(allCategory()).map(([category, count]) => (
+            <div
+              className={`ProductFilter-items ${
+                selectedCategory === category ? "selected-category" : ""
+              }`}
+              onClick={() => handleCategoryClick(category)}
+            >
+              <p>{category}</p>
+              <p>{count}</p>
+            </div>
+          ))}
         </div>
         <div className="ProductFilter-filter">
           <h1>Filter By</h1>

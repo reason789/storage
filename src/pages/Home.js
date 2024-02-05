@@ -13,6 +13,7 @@ const Home = () => {
       <UniqueProducts />
       <Banner
         title="Shirt"
+        link="Shirt"
         bg="linear-gradient(-225deg, #20E2D7 0%, #F9FEA5 100%)"
       />
       <div className="container">
@@ -20,7 +21,8 @@ const Home = () => {
       </div>
 
       <Banner
-        title="Shoes"
+        title="Pants"
+        link="Pants"
         bg="linear-gradient(to top, #d9afd9 0%, #97d9e1 100%)"
       />
       <div className="container">

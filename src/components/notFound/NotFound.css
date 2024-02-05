@@ -1,0 +1,56 @@
+.NotFound{
+    margin-top: 40px;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.NotFound-wrapper{
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.NotFound-wrapper h1{
+    font-size: 80px;
+}
+
+.NotFound-wrapper h2{
+    font-size: var(--font-xxl);
+    color: var(--dark2)
+}
+
+.NotFound-wrapper p{
+    font-size: var(--font-sm);
+    color: var(--dark2);
+    margin-bottom: 30px;
+}
+
+
+.NotFound-wrapper button {
+    background-color: #3498db; 
+    color: #fff; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    animation: pulse 1s infinite alternate;
+  }
+  
+  .NotFound-wrapper .icon {
+    margin-right: 5px; 
+    color: var(--white);
+  }
+  
+  @keyframes pulse {
+    to {
+      transform: scale(1.2);
+      background-color: var(--yellow); 
+    }
+  }

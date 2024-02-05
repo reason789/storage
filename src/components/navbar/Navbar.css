@@ -90,6 +90,12 @@
     background-color: var(--main-bg);
 }
 
+.Navbar-search .pos{
+    position: absolute;
+    top: 14px;
+    right: 20px;
+}
+
 .Navbar-search input{
     width: 100%;
     padding: 0 15px;

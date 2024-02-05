@@ -1,3 +1,5 @@
+import { products } from "../data";
+
 export const getItemsFromLocalStorage = () => {
   const itemsJsonString = localStorage.getItem("cartItems");
   const items = itemsJsonString ? JSON.parse(itemsJsonString) : [];
@@ -29,7 +31,6 @@ export const decreaseQuantity = (id) => {
     // Decrease the quantity, ensuring it doesn't go below 1
     item.quantity = Math.max(1, item.quantity - 1);
 
-    // Update the localStorage
     localStorage.setItem("cartItems", JSON.stringify(items));
   }
 };
@@ -93,4 +94,16 @@ export const total = (deliveryCharge) => {
   }, 0);
 
   return total + deliveryCharge;
+};
+
+export const allCategory = () => {
+  return products.reduce((categoryCount, product) => {
+    const category = product.category;
+    categoryCount[category] = (categoryCount[category] || 0) + 1;
+    return categoryCount;
+  }, {});
+};
+
+export const allProductslength = () => {
+  return products.length;
 };

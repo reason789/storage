@@ -166,7 +166,7 @@ const Navbar = () => {
           value={query}
           placeholder="Search for products"
         />
-        <IoIosSearch className="icon" />
+        <IoIosSearch className="icon pos" />
         <div
           className="Navbar-search-item-list"
           style={{ visibility: query && "visible", opacity: "1" }}

@@ -1,4 +1,5 @@
 import { getItemsFromLocalStorage, subtotal } from "../utils/action";
+import emptyCart from "../../assets/empty-cart.png";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CartItem from "../cartItem/CartItem";
@@ -36,13 +37,29 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
         </div>
         <div className="Sidebar_top">
           <div>
-            {items.map((item, index) => (
-              <CartItem
-                key={index}
-                item={item}
-                setShowSidebar={setShowSidebar}
-              />
-            ))}
+            {items.length !== 0 ? (
+              items.map((item, index) => (
+                <CartItem
+                  key={index}
+                  item={item}
+                  setShowSidebar={setShowSidebar}
+                />
+              ))
+            ) : (
+              <div className="Sidebar-no-item">
+                <img src={emptyCart} width="120px" />
+                <p>No item in this cart</p>
+                <button
+                  onClick={() => {
+                    setShowSidebar(false);
+                    navigate("/product/category");
+                  }}
+                  className="btn"
+                >
+                  Do Shopping
+                </button>
+              </div>
+            )}
           </div>
         </div>
         <div className="Sidebar_bottom">
@@ -53,8 +70,8 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
           <div className="Sidebar_bottom-buttons">
             <button
               onClick={() => {
-                navigate(`/cart`);
                 setShowSidebar(false);
+                navigate(`/cart`);
               }}
               className="Sidebar_bottom-white-btn "
             >
@@ -62,7 +79,10 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
             </button>
             <button
               className="Sidebar_bottom-black-btn "
-              onClick={() => navigate(`/checkout`)}
+              onClick={() => {
+                setShowSidebar(false);
+                navigate(`/checkout`);
+              }}
             >
               CHECKOUT
             </button>

@@ -2,15 +2,6 @@
     margin-top: 30px;
 }
 
-.Checkout h1{
-    font-size: var(--font-xl);
-    color: var(--white);
-    text-align: center;
-    background-color: var(--dark0);
-    padding: 12px 0;
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
 
 .Checkout-address-select-container{
     display: flex;

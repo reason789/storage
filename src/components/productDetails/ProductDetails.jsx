@@ -52,8 +52,10 @@ const ProductDetails = () => {
         </div>
         <div className="ProductDetails-product-view-info">
           <div className="ProductDetails-product-view-info-url">
-            <Link to="/home">Home / </Link>
-            <Link to="/combo-offers">{product && product.category} / </Link>
+            <Link to="/">Home / </Link>
+            <Link to={`/product/category?q=${product.category}`}>
+              {product && product.category} /{" "}
+            </Link>
             <span>{product && product.title}</span>
           </div>
           <h1>{product && product.title}</h1>

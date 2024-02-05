@@ -3,11 +3,13 @@ import "./PlaceOrder.css";
 import image from "../../assets/success.png";
 
 import { useNavigate } from "react-router-dom";
+import Gradient from "../gradient/Gradient";
 
 const PlaceOrder = () => {
   const navigate = useNavigate();
   return (
     <div className="PlaceOrder container">
+      {/* <Gradient /> */}
       <div className="PlaceOrder-wrapper">
         <h1> Your Order has been placed</h1>
         <img src={image} width="70px" />

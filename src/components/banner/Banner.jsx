@@ -1,8 +1,9 @@
 import React from "react";
 import "./Banner.css";
-import photo from "../../assets/pants.webp";
+import { useNavigate } from "react-router-dom";
 
-const banner = ({ title, bg }) => {
+const Banner = ({ title, bg, link }) => {
+  const navigate = useNavigate();
   return (
     <div className="Banner container">
       <div className="Banner-content">
@@ -11,10 +12,16 @@ const banner = ({ title, bg }) => {
           <h1>{title}</h1>
           <div className="dag" />
         </div>
-        <button className="btns"> See More</button>
+        <button
+          onClick={() => navigate(`/product/category?q=${link}`)}
+          className="btns"
+        >
+          {" "}
+          See More
+        </button>
       </div>
     </div>
   );
 };
 
-export default banner;
+export default Banner;

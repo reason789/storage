@@ -1,9 +1,11 @@
+import { getItemsFromLocalStorage, subtotal } from "../utils/action";
+import { useNavigate } from "react-router-dom";
+import photo from "../../assets/cod.png";
 import { useState } from "react";
 import "./Checkout.css";
-import photo from "../../assets/cod.png";
-import { getItemsFromLocalStorage } from "../utils/action";
 
 const Checkout = () => {
+  const navigate = useNavigate();
   const [selectedPayment, setSelectedPayment] = useState(null);
 
   const handlePaymentChange = (event) => {
@@ -13,7 +15,13 @@ const Checkout = () => {
   const products = getItemsFromLocalStorage();
   return (
     <div className="Checkout container">
-      <h1>CHECKOUT</h1>
+      <div className="Cart-header-text">
+        <p>SHOPPING CART &nbsp;</p>
+        <h1>
+          {">"} CHECKOUT {"> "}
+        </h1>
+        <p>&nbsp; PLACE ORDER </p>
+      </div>
       <div className="Checkout-wrapper">
         <div className="Checkout-address">
           <p>Full Name</p>
@@ -77,7 +85,7 @@ const Checkout = () => {
 
               <div className="Checkout-subtotal">
                 <p>
-                  Subtotal: <span> ৳1590</span>
+                  Subtotal: <span> ৳{subtotal && subtotal()}</span>
                 </p>
               </div>
             </div>
@@ -125,7 +133,7 @@ const Checkout = () => {
               </div>
             </div>
             <div className="Checkout-payment-button">
-              <button>Place Order</button>
+              <button onClick={() => navigate("/success")}>Place Order</button>
             </div>
           </div>
         </div>
