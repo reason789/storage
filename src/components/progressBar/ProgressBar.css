@@ -1,0 +1,13 @@
+.ProgressBar{
+    max-width: 425px;
+    margin: 0 auto;
+}
+
+.ProgressBar p{
+    font-weight: 500;
+}
+
+.ProgressBar span{
+    color: var(--yellow);
+    font-weight: 600;
+}

@@ -1,11 +1,78 @@
-.Reviews{
-    min-height: 200px;
+.Reviews {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Reviews p {
+  color: var(--dark5);
+}
+
+.Review {
+  background-color: white;
+}
+
+.Review-header{
+    padding: 20px 0;
+}
+
+.Review-header-info {
+  /* background-color: red; */
+  /* margin: 0 auto; */
+  text-align: center;
+}
+
+.Review-header-bar{
+    flex: .4;
+}
+
+.Review-header-info h1{
+    font-size: var(--font-xxl);
+    font-weight: 600;
+}
+
+.Review-stars span{
+    /* color: red; */
+    font-size: var(--font-m);
+}
+
+.Review-header-info p{
+    color: var(--dark4);
+}
+
+.Review-header-bar {
+  /* background-color: green; */
+}
+
+.Review-content {
+  background-color: yellow;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  background-color: blue;
+  margin: 10px;
+  flex: 1 1 100%;
+}
+
+@media screen and (min-width: 1025px) {
+  .Review-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    gap: 30px;
+  }
+
+  .box {
+    flex: 1 1 40%;
+  }
 }
 
-.Reviews p{
-    color: var(--dark5);
-}
+/* @media screen and (min-width: 1025px) {
+  .box {
+    flex: 1 1 30%;
+  }
+} */
