@@ -14,7 +14,8 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
   //   setItems(itemss);
   // }, [items]);
   const updateItems = () => {
-    const itemss = getItemsFromLocalStorage();
+    const itemsJsonString = localStorage.getItem("cartItems");
+    const itemss = itemsJsonString ? JSON.parse(itemsJsonString) : [];
     setItems(itemss);
     return;
   };

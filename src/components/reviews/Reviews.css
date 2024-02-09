@@ -47,15 +47,40 @@
 }
 
 .Review-content {
-  background-color: yellow;
+  /* background-color: yellow; */
   display: flex;
   flex-wrap: wrap;
+  max-height: 500px;
+  overflow: auto;
 }
 
-.box {
-  background-color: blue;
-  margin: 10px;
+.Review-container {
+  margin: 10px 0;
   flex: 1 1 100%;
+  border: 1px solid var(--yellow);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.Review-top-content{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.Review-user{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Review-time p{
+  font-size: var(--font-xxs);
+  color: var(--dark4);
+}
+
+.Review-bottom-content p{
+  color: var(--dark4);
 }
 
 @media screen and (min-width: 1025px) {
@@ -66,13 +91,9 @@
     gap: 30px;
   }
 
-  .box {
+  .Review-container {
     flex: 1 1 40%;
+    margin: 20px 10px;
   }
 }
 
-/* @media screen and (min-width: 1025px) {
-  .box {
-    flex: 1 1 30%;
-  }
-} */

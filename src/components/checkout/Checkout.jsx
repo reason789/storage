@@ -12,6 +12,8 @@ const Checkout = () => {
     setSelectedPayment(event.target.value);
   };
 
+  const placeOrder = () => {};
+
   const products = getItemsFromLocalStorage();
   return (
     <div className="Checkout container">
@@ -133,7 +135,7 @@ const Checkout = () => {
               </div>
             </div>
             <div className="Checkout-payment-button">
-              <button onClick={() => navigate("/success")}>Place Order</button>
+              <button onClick={placeOrder}>Place Order</button>
             </div>
           </div>
         </div>

@@ -23,12 +23,6 @@
   box-shadow: -14.142px 14.142px 20px 0px rgba(0, 0, 0, 0.1);
   transform: translateX(400px);
   z-index: 1002;
-  /* overflow: auto; */
-
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
-  /* padding: 15px ; */
   transition: all .3s ease-out;
 }
 
@@ -74,7 +68,6 @@
 
 
 .Sidebar_bottom{
-  /* border-top: 1px solid var(--dark7); */
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -111,7 +104,6 @@
   font-weight: 600;
   padding: 15px;
   border-radius: 6px;
-  /* background-color: red; */
 }
 
 .Sidebar_bottom-white-btn{
